@@ -100,6 +100,8 @@ public class Login extends javax.swing.JFrame {
         LoginAsLbl = new javax.swing.JLabel();
         CommuterRBtn = new javax.swing.JRadioButton();
         LenderRBtn = new javax.swing.JRadioButton();
+        CustomerCareBtn = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
         LoginBtn = new javax.swing.JButton();
         CancelBtn = new javax.swing.JButton();
 
@@ -172,21 +174,36 @@ public class Login extends javax.swing.JFrame {
         LoginAsLbl.setText("Login as");
 
         CommuterRBtn.setText("Commuter");
+        CommuterRBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CommuterRBtnActionPerformed(evt);
+            }
+        });
 
         LenderRBtn.setText("Lender");
+
+        CustomerCareBtn.setText("Customer Care");
+
+        jRadioButton1.setText("Admin");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(LoginAsLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                .addComponent(LenderRBtn)
-                .addGap(18, 18, 18)
-                .addComponent(CommuterRBtn)
-                .addContainerGap())
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(LenderRBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CommuterRBtn))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(CustomerCareBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton1)))
+                .addGap(6, 6, 6))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +213,10 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(LoginAsLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CommuterRBtn)
                     .addComponent(LenderRBtn))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CustomerCareBtn)
+                    .addComponent(jRadioButton1)))
         );
 
         LoginBtn.setText("Login");
@@ -230,22 +250,22 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(LoginBtn)
                         .addGap(70, 70, 70)
                         .addComponent(CancelBtn)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginBtn)
                     .addComponent(CancelBtn))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -297,7 +317,7 @@ public class Login extends javax.swing.JFrame {
             if(validcommuter!=null) {
 //                p.customer1.setCustomer(validcustomer);
                   validcommuter.setVisible(true);
-                
+                  dispose();
             }
             else    {
                 javax.swing.JOptionPane.showMessageDialog(this,"Username and password do not match!");          
@@ -308,12 +328,17 @@ public class Login extends javax.swing.JFrame {
             if(validlender!=null) {
 //                p.admin1.setAdmin(validadmin);
                 validlender.setVisible(true);
+                dispose();
             }
             else    {
                 javax.swing.JOptionPane.showMessageDialog(this,"Username and password do not match!");          
             }
         }
     }//GEN-LAST:event_LoginBtnActionPerformed
+
+    private void CommuterRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommuterRBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CommuterRBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,6 +378,7 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelBtn;
     private javax.swing.JRadioButton CommuterRBtn;
+    private javax.swing.JRadioButton CustomerCareBtn;
     private javax.swing.JRadioButton LenderRBtn;
     private javax.swing.JLabel LoginAsLbl;
     private javax.swing.JButton LoginBtn;
@@ -365,5 +391,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 }

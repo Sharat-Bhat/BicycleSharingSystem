@@ -15,7 +15,7 @@ public class Commuter extends javax.swing.JFrame {
      * Creates new form Commuter
      */
     
-    private Commuter comUser;
+//    private Commuter comUser;
     String uname, password, name, email, phone, balance;
     
     public Commuter() {
@@ -47,6 +47,7 @@ public class Commuter extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         WalletBtn = new javax.swing.JButton();
         ShowBicyclesBtn = new javax.swing.JButton();
+        LogOutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,15 +68,27 @@ public class Commuter extends javax.swing.JFrame {
             }
         });
 
+        LogOutBtn.setText("Log Out");
+        LogOutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ShowBicyclesBtn)
-                    .addComponent(WalletBtn))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ShowBicyclesBtn)
+                            .addComponent(WalletBtn)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(LogOutBtn)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -85,7 +98,9 @@ public class Commuter extends javax.swing.JFrame {
                 .addComponent(WalletBtn)
                 .addGap(18, 18, 18)
                 .addComponent(ShowBicyclesBtn)
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(LogOutBtn)
+                .addGap(39, 39, 39))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -136,6 +151,12 @@ public class Commuter extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ShowBicyclesBtnActionPerformed
 
+    private void LogOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutBtnActionPerformed
+        // TODO add your handling code here:
+        new HomePage().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_LogOutBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -172,6 +193,7 @@ public class Commuter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogOutBtn;
     private javax.swing.JButton ShowBicyclesBtn;
     private javax.swing.JLabel TitleLbl;
     private javax.swing.JButton WalletBtn;

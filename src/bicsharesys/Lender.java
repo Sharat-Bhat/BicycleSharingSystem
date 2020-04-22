@@ -39,14 +39,11 @@ public class Lender extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         LendBicycleBtn = new javax.swing.JButton();
         LogOutBtn = new javax.swing.JButton();
-
-        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,7 +128,7 @@ public class Lender extends javax.swing.JFrame {
 
     private void LendBicycleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LendBicycleBtnActionPerformed
         // TODO add your handling code here:
-        new LendingPage().setVisible(true);
+        new LendingPage(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_LendBicycleBtnActionPerformed
 
@@ -173,7 +170,6 @@ public class Lender extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LendBicycleBtn;
     private javax.swing.JButton LogOutBtn;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
