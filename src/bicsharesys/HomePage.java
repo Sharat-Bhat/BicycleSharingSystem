@@ -30,6 +30,9 @@ public class HomePage extends javax.swing.JFrame {
         LogInBtn = new javax.swing.JButton();
         ShowRateCardBtn = new javax.swing.JButton();
         EmpRegBtn = new javax.swing.JButton();
+        ShowFAQsBtn = new javax.swing.JButton();
+        DescriptionLbl = new javax.swing.JLabel();
+        TitleLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,40 +64,57 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        ShowFAQsBtn.setText("Show FAQs");
+        ShowFAQsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowFAQsBtnActionPerformed(evt);
+            }
+        });
+
+        DescriptionLbl.setText("<html>This is a Bicycle Sharing System where any user can rent a bicycle to commute from one place to another inside IIT-Kharagpur Campus.</html>");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(133, 212, Short.MAX_VALUE)
-                .addComponent(ShowRateCardBtn)
-                .addGap(43, 43, 43))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(CustRegBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(EmpRegBtn))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(LogInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(138, 138, 138)
+                .addComponent(LogInBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(DescriptionLbl, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CustRegBtn)
+                            .addComponent(EmpRegBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(ShowFAQsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ShowRateCardBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(35, 35, 35))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(ShowRateCardBtn)
+                .addContainerGap()
+                .addComponent(DescriptionLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(CustRegBtn)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CustRegBtn)
+                    .addComponent(ShowRateCardBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(EmpRegBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EmpRegBtn)
+                    .addComponent(ShowFAQsBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LogInBtn)
-                .addGap(21, 21, 21))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
+
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        TitleLbl.setText("Welcome to Pedl-KGP");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,11 +124,16 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(TitleLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addComponent(TitleLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -140,6 +165,12 @@ public class HomePage extends javax.swing.JFrame {
         NewEmployee.main(new String[]{});
         dispose();
     }//GEN-LAST:event_EmpRegBtnActionPerformed
+
+    private void ShowFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowFAQsBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowRateCard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ShowFAQsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,9 +209,12 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CustRegBtn;
+    private javax.swing.JLabel DescriptionLbl;
     private javax.swing.JButton EmpRegBtn;
     private javax.swing.JButton LogInBtn;
+    private javax.swing.JButton ShowFAQsBtn;
     private javax.swing.JButton ShowRateCardBtn;
+    private javax.swing.JLabel TitleLbl;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

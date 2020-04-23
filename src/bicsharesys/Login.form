@@ -145,9 +145,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="UsernameTxt">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsernameTxtActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -213,9 +210,9 @@
                                   <Component id="CommuterRBtn" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="CustomerCareBtn" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CustomerCareRBtn" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="AdminRBtn" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
@@ -233,8 +230,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="CustomerCareBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="CustomerCareRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AdminRBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -250,21 +247,18 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Commuter"/>
                   </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CommuterRBtnActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="LenderRBtn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lender"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="CustomerCareBtn">
+                <Component class="javax.swing.JRadioButton" name="CustomerCareRBtn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Customer Care"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="AdminRBtn">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Admin"/>
                   </Properties>

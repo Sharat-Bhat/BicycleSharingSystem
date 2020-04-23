@@ -24,15 +24,23 @@ public class Login extends javax.swing.JFrame {
      */
     List<Commuter> commuterlist;
     List<Lender> lenderlist;
+    List<Admin> adminlist;
+    List<CustomerCareEmp> ccelist;
     static final String COMMUTER_FILE = "data//commuter.txt";
     static final String LENDER_FILE = "data//lender.txt";
+    static final String ADMIN_FILE = "data//admin.txt";
+    static final String CUSTOMERCARE_FILE = "data//customer_care.txt";
     
     public Login() {
         initComponents();
         commuterlist = new ArrayList();
         lenderlist = new ArrayList();
+        adminlist = new ArrayList();
+        ccelist = new ArrayList();
         load_dataC(COMMUTER_FILE);
         load_dataL(LENDER_FILE);
+        load_dataA(ADMIN_FILE);
+        load_dataCCE(CUSTOMERCARE_FILE);
     }
     
     private void load_dataC(String filename) {
@@ -61,6 +69,32 @@ public class Login extends javax.swing.JFrame {
         }
     }
     
+    private void load_dataA(String filename) {
+        System.out.println("in load data func");
+        try(Scanner s = new Scanner(new BufferedReader(new FileReader(filename)))) {
+            s.useDelimiter("\\s*;\\s*");
+            while(s.hasNext()){
+                String[] author = s.next().split("\\s*,\\s*");
+                adminlist.add(new Admin(author));
+            }
+        }catch (IOException e){
+            System.out.println("Cannot open file " + filename);
+        }
+    }
+    
+    private void load_dataCCE(String filename) {
+        System.out.println("in load data func");
+        try(Scanner s = new Scanner(new BufferedReader(new FileReader(filename)))) {
+            s.useDelimiter("\\s*;\\s*");
+            while(s.hasNext()){
+                String[] author = s.next().split("\\s*,\\s*");
+                ccelist.add(new CustomerCareEmp(author));
+            }
+        }catch (IOException e){
+            System.out.println("Cannot open file " + filename);
+        }
+    }
+    
     Commuter isvalidC(String uname, String password) {
         for(Commuter commuter : commuterlist){
             if(uname.equals(commuter.uname) && password.equals(commuter.password)){
@@ -74,6 +108,24 @@ public class Login extends javax.swing.JFrame {
         for(Lender lender : lenderlist){
             if(uname.equals(lender.uname) && password.equals(lender.password)){
                 return lender;
+            }
+        }
+        return null;
+    }
+    
+    Admin isvalidA(String uname, String password) {
+        for(Admin admin : adminlist){
+            if(uname.equals(admin.uname) && password.equals(admin.password)){
+                return admin;
+            }
+        }
+        return null;
+    }
+    
+    CustomerCareEmp isvalidCCE(String uname, String password) {
+        for(CustomerCareEmp cce : ccelist){
+            if(uname.equals(cce.uname) && password.equals(cce.password)){
+                return cce;
             }
         }
         return null;
@@ -100,20 +152,14 @@ public class Login extends javax.swing.JFrame {
         LoginAsLbl = new javax.swing.JLabel();
         CommuterRBtn = new javax.swing.JRadioButton();
         LenderRBtn = new javax.swing.JRadioButton();
-        CustomerCareBtn = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
+        CustomerCareRBtn = new javax.swing.JRadioButton();
+        AdminRBtn = new javax.swing.JRadioButton();
         LoginBtn = new javax.swing.JButton();
         CancelBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         UsernameLbl.setText("Username");
-
-        UsernameTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsernameTxtActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -174,17 +220,12 @@ public class Login extends javax.swing.JFrame {
         LoginAsLbl.setText("Login as");
 
         CommuterRBtn.setText("Commuter");
-        CommuterRBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CommuterRBtnActionPerformed(evt);
-            }
-        });
 
         LenderRBtn.setText("Lender");
 
-        CustomerCareBtn.setText("Customer Care");
+        CustomerCareRBtn.setText("Customer Care");
 
-        jRadioButton1.setText("Admin");
+        AdminRBtn.setText("Admin");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -200,9 +241,9 @@ public class Login extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CommuterRBtn))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(CustomerCareBtn)
+                        .addComponent(CustomerCareRBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton1)))
+                        .addComponent(AdminRBtn)))
                 .addGap(6, 6, 6))
         );
         jPanel5Layout.setVerticalGroup(
@@ -215,8 +256,8 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(LenderRBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CustomerCareBtn)
-                    .addComponent(jRadioButton1)))
+                    .addComponent(CustomerCareRBtn)
+                    .addComponent(AdminRBtn)))
         );
 
         LoginBtn.setText("Login");
@@ -299,10 +340,6 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UsernameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsernameTxtActionPerformed
-
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelBtnActionPerformed
         // TODO add your handling code here:
         new HomePage().setVisible(true);
@@ -334,11 +371,29 @@ public class Login extends javax.swing.JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this,"Username and password do not match!");          
             }
         }
+        else if(AdminRBtn.isSelected()) {
+            Admin validadmin = isvalidA(uname, password);
+            if(validadmin!=null) {
+//                p.admin1.setAdmin(validadmin);
+                validadmin.setVisible(true);
+                dispose();
+            }
+            else    {
+                javax.swing.JOptionPane.showMessageDialog(this,"Username and password do not match!");          
+            }
+        }
+        else if(CustomerCareRBtn.isSelected()) {
+            CustomerCareEmp validcce = isvalidCCE(uname, password);
+            if(validcce!=null) {
+//                p.admin1.setAdmin(validadmin);
+                validcce.setVisible(true);
+                dispose();
+            }
+            else    {
+                javax.swing.JOptionPane.showMessageDialog(this,"Username and password do not match!");          
+            }
+        }
     }//GEN-LAST:event_LoginBtnActionPerformed
-
-    private void CommuterRBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CommuterRBtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CommuterRBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,9 +431,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton AdminRBtn;
     private javax.swing.JButton CancelBtn;
     private javax.swing.JRadioButton CommuterRBtn;
-    private javax.swing.JRadioButton CustomerCareBtn;
+    private javax.swing.JRadioButton CustomerCareRBtn;
     private javax.swing.JRadioButton LenderRBtn;
     private javax.swing.JLabel LoginAsLbl;
     private javax.swing.JButton LoginBtn;
@@ -391,6 +447,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
     // End of variables declaration//GEN-END:variables
 }

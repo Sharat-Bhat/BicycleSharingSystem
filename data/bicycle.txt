@@ -1,4 +1,6 @@
 1235, Pan Loop, 0, sharat, --;
 792298, Tech Market, 0, sharat, --;
-298796, Nalanda Classroom Complex, 0, sharat, --;
+298796, Main Building, 0, sharat, --;
 287226, Tech Market, 0, sharat, --;
+3ec5f7ubt, Pan Loop, 0, suddu, --;
+898293g6, Tech Market, 0, suddu, --;

@@ -48,13 +48,16 @@ public class Commuter extends javax.swing.JFrame {
         WalletBtn = new javax.swing.JButton();
         ShowBicyclesBtn = new javax.swing.JButton();
         LogOutBtn = new javax.swing.JButton();
+        ShowRateCardBtn = new javax.swing.JButton();
+        ShowFAQsBtn = new javax.swing.JButton();
+        ContactCCBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleLbl.setText("Welcome to Commuter Page");
 
-        WalletBtn.setText("Wallet");
+        WalletBtn.setText("Check Wallet");
         WalletBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 WalletBtnActionPerformed(evt);
@@ -75,32 +78,64 @@ public class Commuter extends javax.swing.JFrame {
             }
         });
 
+        ShowRateCardBtn.setText("Show Rate Card");
+        ShowRateCardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowRateCardBtnActionPerformed(evt);
+            }
+        });
+
+        ShowFAQsBtn.setText("Show FAQs");
+        ShowFAQsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowFAQsBtnActionPerformed(evt);
+            }
+        });
+
+        ContactCCBtn.setText("Contact Customer Care");
+        ContactCCBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContactCCBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ShowBicyclesBtn)
-                            .addComponent(WalletBtn)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(LogOutBtn)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(ContactCCBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LogOutBtn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(WalletBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ShowRateCardBtn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(ShowBicyclesBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ShowFAQsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(73, 73, 73))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(WalletBtn)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(WalletBtn)
+                    .addComponent(ShowRateCardBtn))
                 .addGap(18, 18, 18)
-                .addComponent(ShowBicyclesBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(LogOutBtn)
-                .addGap(39, 39, 39))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ShowBicyclesBtn)
+                    .addComponent(ShowFAQsBtn))
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ContactCCBtn)
+                    .addComponent(LogOutBtn))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -157,6 +192,24 @@ public class Commuter extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_LogOutBtnActionPerformed
 
+    private void ShowFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowFAQsBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowFAQs().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ShowFAQsBtnActionPerformed
+
+    private void ShowRateCardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRateCardBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowRateCard().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ShowRateCardBtnActionPerformed
+
+    private void ContactCCBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContactCCBtnActionPerformed
+        // TODO add your handling code here:
+        new UserHelpPortal(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ContactCCBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -193,8 +246,11 @@ public class Commuter extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ContactCCBtn;
     private javax.swing.JButton LogOutBtn;
     private javax.swing.JButton ShowBicyclesBtn;
+    private javax.swing.JButton ShowFAQsBtn;
+    private javax.swing.JButton ShowRateCardBtn;
     private javax.swing.JLabel TitleLbl;
     private javax.swing.JButton WalletBtn;
     private javax.swing.JPanel jPanel1;

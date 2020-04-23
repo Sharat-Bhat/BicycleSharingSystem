@@ -1,1 +1,2 @@
 sharat, sharat123, Sharat, 1234567890, sharat@gmail.com, 0;
+suddu, suddu123, Sudarshan, 7538694210, me.suddu@gmail.com, 0;

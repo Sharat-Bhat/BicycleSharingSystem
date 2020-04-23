@@ -14,8 +14,22 @@ public class Admin extends javax.swing.JFrame {
     /**
      * Creates new form Admin
      */
+    public String uname, password, name, phone, emergency_phone, email, gender, bloodgroup;
+    
     public Admin() {
         initComponents();
+    }
+    
+    public Admin(String[] user) {
+        initComponents();
+        this.uname = user[0];
+        this.password = user[1];
+        this.name = user[2];
+        this.phone = user[3];
+        this.email = user[4];
+        this.emergency_phone = user[5];
+        this.gender = user[6];
+        this.bloodgroup = user[7];
     }
 
     /**

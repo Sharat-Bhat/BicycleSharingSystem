@@ -234,11 +234,6 @@ public class Ride extends javax.swing.JFrame {
         jLabel3.setText("Rating");
 
         RatingCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5", "4", "3", "2", "1" }));
-        RatingCombo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RatingComboActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -362,10 +357,6 @@ public class Ride extends javax.swing.JFrame {
             chargeCommuter(this.user, diffMinutes);
         }
     }//GEN-LAST:event_EndRideBtnActionPerformed
-
-    private void RatingComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RatingComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RatingComboActionPerformed
 
     private void NextBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextBtnActionPerformed
         // TODO add your handling code here:

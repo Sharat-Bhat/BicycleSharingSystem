@@ -104,12 +104,6 @@ public class SignUp extends javax.swing.JFrame {
 
         EmailLbl.setText("Email Id");
 
-        EmailTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmailTxtActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -133,12 +127,6 @@ public class SignUp extends javax.swing.JFrame {
 
         MobileLbl.setText("Mobile");
 
-        MobileTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MobileTxtActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -161,12 +149,6 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         UserNameLbl.setText("User Name");
-
-        UserNameTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameTxtActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -213,12 +195,6 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         NameLbl.setText("Name");
-
-        NameTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NameTxtActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -278,12 +254,6 @@ public class SignUp extends javax.swing.JFrame {
 
         BloodGroupLbl.setText("Blood Group");
 
-        BloodGroupTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BloodGroupTxtActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -336,12 +306,6 @@ public class SignUp extends javax.swing.JFrame {
         );
 
         EmergencyMobileLbl.setText("Emergency Mobile");
-
-        EmergencyMobileTxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EmergencyMobileTxtActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -483,30 +447,6 @@ public class SignUp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void UserNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameTxtActionPerformed
-
-    private void NameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NameTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NameTxtActionPerformed
-
-    private void EmailTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmailTxtActionPerformed
-
-    private void MobileTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MobileTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MobileTxtActionPerformed
-
-    private void BloodGroupTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BloodGroupTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BloodGroupTxtActionPerformed
-
-    private void EmergencyMobileTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmergencyMobileTxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EmergencyMobileTxtActionPerformed
 
     private void SignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpBtnActionPerformed
         // TODO add your handling code here:
