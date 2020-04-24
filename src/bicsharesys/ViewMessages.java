@@ -58,7 +58,8 @@ public class ViewMessages extends javax.swing.JFrame {
          
         catch(Exception e)
         {
-            javax.swing.JOptionPane.showMessageDialog(this,"No messages found!");          
+//            javax.swing.JOptionPane.showMessageDialog(this,"No messages found!");   
+            ReplyTxt.setEditable(false);
         }
     }
     
@@ -85,6 +86,10 @@ public class ViewMessages extends javax.swing.JFrame {
                 ReplyTxt.setEditable(false);
             }
         }
+//        else
+//        {
+//            javax.swing.JOptionPane.showMessageDialog(this,"No messages found!");  
+//        }
     }
     
     public ViewMessages(Commuter user) {
@@ -111,6 +116,11 @@ public class ViewMessages extends javax.swing.JFrame {
                 ReplyTxt.setEditable(false);
             }
         }
+//        else
+//        {
+//            javax.swing.JOptionPane.showMessageDialog(this,"No messages found!"); 
+//        }
+         
     }
     
     private void load_dataM(String filename) {
@@ -484,27 +494,46 @@ public class ViewMessages extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.cce != null)
         {
+            try{
             String prev = ChangeToStringM(mymessageslist.get(this.iter));
             mymessageslist.get(this.iter).receiver = this.cce.uname;
             mymessageslist.get(this.iter).receiver_read = "Yes";
             String next = ChangeToStringM(mymessageslist.get(this.iter));
             modify(MESSAGES_FILE, prev, next);
+            }
+            catch(Exception e)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this,"No messages found!"); 
+            }
         }
         else if(this.lender != null)
         {
+            try
+            {
             String prev = ChangeToStringM(mymessageslist.get(this.iter));
             mymessageslist.get(this.iter).sender = this.lender.uname;
             mymessageslist.get(this.iter).sender_read = "Yes";
             String next = ChangeToStringM(mymessageslist.get(this.iter));
             modify(MESSAGES_FILE, prev, next);
+            }
+            catch(Exception e)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this,"No messages found!"); 
+            }
         }
         else if(this.commuter != null)
         {
+            try{
             String prev = ChangeToStringM(mymessageslist.get(this.iter));
             mymessageslist.get(this.iter).sender = this.commuter.uname;
             mymessageslist.get(this.iter).sender_read = "Yes";
             String next = ChangeToStringM(mymessageslist.get(this.iter));
             modify(MESSAGES_FILE, prev, next);
+            }
+            catch(Exception e)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this,"No messages found!"); 
+            }
         }
     }//GEN-LAST:event_MarkAsReadBtnActionPerformed
 
@@ -512,6 +541,7 @@ public class ViewMessages extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(this.cce != null)
         {
+            try{
             String prev = ChangeToStringM(mymessageslist.get(this.iter));
             mymessageslist.get(this.iter).receiver = this.cce.uname;
             mymessageslist.get(this.iter).receiver_read = "Yes";
@@ -519,6 +549,11 @@ public class ViewMessages extends javax.swing.JFrame {
             String next = ChangeToStringM(mymessageslist.get(this.iter));
             modify(MESSAGES_FILE, prev, next);
             ReplyTxt.setEditable(false);
+            }
+            catch(Exception e)
+            {
+                javax.swing.JOptionPane.showMessageDialog(this,"No messages found!"); 
+            }
         }
     }//GEN-LAST:event_SubmitBtnActionPerformed
 
