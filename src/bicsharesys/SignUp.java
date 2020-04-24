@@ -15,7 +15,7 @@ import java.io.IOException;
  * @author sharat
  */
 public class SignUp extends javax.swing.JFrame {
-    public String uname, password, name, phone, emergency_phone, email, balance;
+    public String uname, password, name, phone, emergency_phone, email, balance, gender, blood_group;
     static final String COMMUTER_FILE = "data//commuter.txt";
     static final String LENDER_FILE = "data//lender.txt";
     /**
@@ -28,7 +28,7 @@ public class SignUp extends javax.swing.JFrame {
     void SignUpWrite(String filename)
     {
         String data = "";
-        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.balance+";\n";
+        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.balance+", "+this.emergency_phone+", "+this.gender+", "+this.blood_group+";\n";
     
         BufferedWriter bw = null;
         FileWriter fw = null;
@@ -457,11 +457,20 @@ public class SignUp extends javax.swing.JFrame {
         this.emergency_phone = EmergencyMobileTxt.getText();
         this.email = EmailTxt.getText();
         this.balance = "0";
+        this.blood_group = BloodGroupTxt.getText();
+        if(MaleRBtn.isSelected())
+        {
+            this.gender = "Male";
+        }
+        else if(FemaleRBtn.isSelected())
+        {
+            this.gender = "Female";
+        }
         if(LenderRBtn.isSelected())
         {
             SignUpWrite(LENDER_FILE);
         }
-        else if(CommuterRBtn.isSelected())
+        if(CommuterRBtn.isSelected())
         {
             SignUpWrite(COMMUTER_FILE);
         }

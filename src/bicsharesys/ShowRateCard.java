@@ -5,6 +5,10 @@
  */
 package bicsharesys;
 
+import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 /**
  *
  * @author sharat
@@ -14,8 +18,87 @@ public class ShowRateCard extends javax.swing.JFrame {
     /**
      * Creates new form ShowRateCard
      */
+    Commuter commuter;
+    Lender lender;
+    Admin admin;
+    CustomerCareEmp cce;
+    static final String RATECARD_FILE = "data//ratecard.txt";
+    
     public ShowRateCard() {
         initComponents();
+        EditBtn.setVisible(false);
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }
+    public ShowRateCard(Commuter commuter) {
+        initComponents();
+        EditBtn.setVisible(false);
+        this.commuter = commuter;
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }
+    public ShowRateCard(Lender lender) {
+        initComponents();
+        EditBtn.setVisible(false);
+        this.lender = lender;
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }
+    public ShowRateCard(Admin admin) {
+        initComponents();
+        this.admin = admin;
+        DescriptionTxt.setEditable(true);
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }
+    public ShowRateCard(CustomerCareEmp cce) {
+        initComponents();
+        EditBtn.setVisible(false);
+        this.cce = cce;
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }
+    void editRateCard(String filename)
+    {
+        try(FileWriter fw = new FileWriter(filename,false))
+        {
+            fw.write(DescriptionTxt.getText());
+        }
+        catch(Exception e)
+        {
+            System.out.println("Cannot open file " + filename);
+        }
+        
     }
 
     /**
@@ -31,18 +114,34 @@ public class ShowRateCard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        DescriptionTxt = new javax.swing.JTextArea();
+        EditBtn = new javax.swing.JButton();
+        ExitBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         jLabel1.setText("Rate Card");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("You will be charged Rs 10 for first 15 minutes \nand then Rs 5 for every subsequent 15 minute \nduration.");
-        jScrollPane1.setViewportView(jTextArea1);
+        DescriptionTxt.setEditable(false);
+        DescriptionTxt.setColumns(20);
+        DescriptionTxt.setRows(5);
+        DescriptionTxt.setText("You will be charged Rs 10 for first 15 minutes \nand then Rs 5 for every subsequent 15 minute \nduration.");
+        jScrollPane1.setViewportView(DescriptionTxt);
+
+        EditBtn.setText("Edit");
+        EditBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditBtnActionPerformed(evt);
+            }
+        });
+
+        ExitBtn.setText("Exit");
+        ExitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -50,15 +149,26 @@ public class ShowRateCard extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-                .addGap(42, 42, 42))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
+                        .addGap(42, 42, 42))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(EditBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ExitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EditBtn)
+                    .addComponent(ExitBtn))
+                .addGap(25, 25, 25))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -97,6 +207,44 @@ public class ShowRateCard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ExitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBtnActionPerformed
+        // TODO add your handling code here:
+        if(this.admin != null)
+        {
+            this.admin.setVisible(true);
+        }
+        else if(this.cce != null)
+        {
+            this.cce.setVisible(true);
+        }
+        else if(this.commuter != null)
+        {
+            this.commuter.setVisible(true);
+        }
+        else if(this.lender != null)
+        {
+            this.lender.setVisible(true);
+        }
+        else
+        {
+            new HomePage().setVisible(true);
+        }
+        dispose();
+    }//GEN-LAST:event_ExitBtnActionPerformed
+
+    private void EditBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditBtnActionPerformed
+        // TODO add your handling code here:
+        editRateCard(RATECARD_FILE);
+        try
+        {
+            DescriptionTxt.setText(Files.readString(Paths.get(RATECARD_FILE)));
+        }
+        catch(Exception e)
+        {
+         System.out.println("Cannot open file " + RATECARD_FILE);   
+        }
+    }//GEN-LAST:event_EditBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -133,10 +281,12 @@ public class ShowRateCard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea DescriptionTxt;
+    private javax.swing.JButton EditBtn;
+    private javax.swing.JButton ExitBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

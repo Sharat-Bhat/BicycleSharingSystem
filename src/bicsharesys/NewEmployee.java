@@ -19,7 +19,7 @@ public class NewEmployee extends javax.swing.JFrame {
     /**
      * Creates new form NewEmployee
      */
-    public String uname, password, name, phone, emergency_phone, email, gender, bloodgroup;
+    public String uname, password, name, phone, emergency_phone, email, gender, blood_group;
     static final String ADMIN_FILE = "data//admin.txt";
     static final String CUSTOMERCARE_FILE = "data//customer_care.txt";
     
@@ -30,7 +30,7 @@ public class NewEmployee extends javax.swing.JFrame {
     void SignUpWrite(String filename)
     {
         String data = "";
-        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.emergency_phone+", "+this.gender+", "+this.bloodgroup+";\n";
+        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.emergency_phone+", "+this.gender+", "+this.blood_group+";\n";
     
         BufferedWriter bw = null;
         FileWriter fw = null;
@@ -467,14 +467,14 @@ public class NewEmployee extends javax.swing.JFrame {
         this.phone = MobileTxt.getText();
         this.emergency_phone = EmergencyMobileTxt.getText();
         this.email = EmailTxt.getText();
-        this.bloodgroup = BloodGroupTxt.getText();
+        this.blood_group = BloodGroupTxt.getText();
         if(MaleRBtn.isSelected())
         {
-            this.gender = "M";
+            this.gender = "Male";
         }
         else if(FemaleRBtn.isSelected())
         {
-            this.gender = "F";
+            this.gender = "Female";
         }
         if(AdminRBtn.isSelected())
         {

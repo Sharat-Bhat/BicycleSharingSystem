@@ -14,7 +14,7 @@ public class CustomerCareEmp extends javax.swing.JFrame {
     /**
      * Creates new form CustomerCareEmp
      */
-    public String uname, password, name, phone, emergency_phone, email, gender, bloodgroup;
+    public String uname, password, name, phone, emergency_phone, email, gender, blood_group;
     
     
     public CustomerCareEmp() {
@@ -30,7 +30,7 @@ public class CustomerCareEmp extends javax.swing.JFrame {
         this.email = user[4];
         this.emergency_phone = user[5];
         this.gender = user[6];
-        this.bloodgroup = user[7];
+        this.blood_group = user[7];
     }
 
     /**

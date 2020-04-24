@@ -16,7 +16,7 @@ public class Lender extends javax.swing.JFrame {
      */
     
     private Lender lendUser;
-    String uname, password, name, email;
+    String uname, password, name, email, phone, emergency_phone, gender, blood_group;
     
     public Lender() {
         initComponents();
@@ -27,7 +27,12 @@ public class Lender extends javax.swing.JFrame {
         this.uname = user[0];
         this.password = user[1];
         this.name = user[2];
-        
+        this.phone = user[3];
+        this.email = user[4];
+        this.emergency_phone = user[6];
+        this.gender = user[7];
+        this.blood_group = user[8];
+        TitleLbl.setText("Hello "+this.name);
     }
     
     /**
@@ -40,17 +45,15 @@ public class Lender extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         LendBicycleBtn = new javax.swing.JButton();
         LogOutBtn = new javax.swing.JButton();
         ContactCCBtn = new javax.swing.JButton();
         ViewMsgsBtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        TitleLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Welcome, Lender");
 
         LendBicycleBtn.setText("Lend Bicycle");
         LendBicycleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -80,6 +83,10 @@ public class Lender extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("<html>Welcome to the Lender Section</html>");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -94,11 +101,14 @@ public class Lender extends javax.swing.JFrame {
                     .addComponent(ContactCCBtn, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ViewMsgsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
+            .addComponent(jLabel1)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(132, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LendBicycleBtn)
                     .addComponent(ContactCCBtn))
@@ -109,7 +119,9 @@ public class Lender extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabel2.setText("Hello");
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitleLbl.setText("Hello");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,23 +133,15 @@ public class Lender extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(jLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TitleLbl)
+                .addGap(29, 29, 29)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -219,9 +223,9 @@ public class Lender extends javax.swing.JFrame {
     private javax.swing.JButton ContactCCBtn;
     private javax.swing.JButton LendBicycleBtn;
     private javax.swing.JButton LogOutBtn;
+    private javax.swing.JLabel TitleLbl;
     private javax.swing.JButton ViewMsgsBtn;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

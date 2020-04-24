@@ -16,7 +16,7 @@ public class Commuter extends javax.swing.JFrame {
      */
     
 //    private Commuter comUser;
-    String uname, password, name, email, phone, balance;
+    String uname, password, name, email, phone, balance, emergency_phone, gender, blood_group;
     
     public Commuter() {
         initComponents();
@@ -30,6 +30,9 @@ public class Commuter extends javax.swing.JFrame {
         this.phone = user[3];
         this.email = user[4];
         this.balance = user[5];
+        this.emergency_phone = user[6];
+        this.gender = user[7];
+        this.blood_group = user[8];
         TitleLbl.setText(this.name+", "+TitleLbl.getText());
     }
     
@@ -51,6 +54,8 @@ public class Commuter extends javax.swing.JFrame {
         ShowRateCardBtn = new javax.swing.JButton();
         ShowFAQsBtn = new javax.swing.JButton();
         ContactCCBtn = new javax.swing.JButton();
+        ViewMsgsBtn = new javax.swing.JButton();
+        ViewRideHistBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,22 +104,40 @@ public class Commuter extends javax.swing.JFrame {
             }
         });
 
+        ViewMsgsBtn.setText("View Messages");
+        ViewMsgsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewMsgsBtnActionPerformed(evt);
+            }
+        });
+
+        ViewRideHistBtn.setText("View Ride History");
+        ViewRideHistBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewRideHistBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(ViewMsgsBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ViewRideHistBtn))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(ContactCCBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(LogOutBtn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(WalletBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ShowRateCardBtn))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(ShowBicyclesBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ShowFAQsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -131,11 +154,15 @@ public class Commuter extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ShowBicyclesBtn)
                     .addComponent(ShowFAQsBtn))
-                .addGap(27, 27, 27)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ContactCCBtn)
                     .addComponent(LogOutBtn))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewMsgsBtn)
+                    .addComponent(ViewRideHistBtn))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -210,6 +237,18 @@ public class Commuter extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ContactCCBtnActionPerformed
 
+    private void ViewMsgsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewMsgsBtnActionPerformed
+        // TODO add your handling code here:
+        new ViewMessages(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewMsgsBtnActionPerformed
+
+    private void ViewRideHistBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewRideHistBtnActionPerformed
+        // TODO add your handling code here:
+        new RideHistory(this);
+        dispose();
+    }//GEN-LAST:event_ViewRideHistBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,6 +291,8 @@ public class Commuter extends javax.swing.JFrame {
     private javax.swing.JButton ShowFAQsBtn;
     private javax.swing.JButton ShowRateCardBtn;
     private javax.swing.JLabel TitleLbl;
+    private javax.swing.JButton ViewMsgsBtn;
+    private javax.swing.JButton ViewRideHistBtn;
     private javax.swing.JButton WalletBtn;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

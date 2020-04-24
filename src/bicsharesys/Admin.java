@@ -30,6 +30,7 @@ public class Admin extends javax.swing.JFrame {
         this.emergency_phone = user[5];
         this.gender = user[6];
         this.bloodgroup = user[7];
+        TitleLbl.setText("Hello "+this.name);
     }
 
     /**
@@ -42,26 +43,143 @@ public class Admin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        TitleLbl = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ViewCommutersBtn = new javax.swing.JButton();
+        ViewLendersBtn = new javax.swing.JButton();
+        ViewEmployeesBtn = new javax.swing.JButton();
+        ViewBicycleHistoryBtn = new javax.swing.JButton();
+        ViewRateCardBtn = new javax.swing.JButton();
+        ViewFAQsBtn = new javax.swing.JButton();
+        ViewLocationsBtn = new javax.swing.JButton();
+        LogOutBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Welcome, Admin");
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitleLbl.setText("Welcome, Admin");
+
+        ViewCommutersBtn.setText("View Commuters");
+        ViewCommutersBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewCommutersBtnActionPerformed(evt);
+            }
+        });
+
+        ViewLendersBtn.setText("View Lenders");
+        ViewLendersBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewLendersBtnActionPerformed(evt);
+            }
+        });
+
+        ViewEmployeesBtn.setText("View Employees");
+        ViewEmployeesBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewEmployeesBtnActionPerformed(evt);
+            }
+        });
+
+        ViewBicycleHistoryBtn.setText("View Bicycle History");
+        ViewBicycleHistoryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewBicycleHistoryBtnActionPerformed(evt);
+            }
+        });
+
+        ViewRateCardBtn.setText("View Rate Card");
+        ViewRateCardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewRateCardBtnActionPerformed(evt);
+            }
+        });
+
+        ViewFAQsBtn.setText("View FAQs");
+        ViewFAQsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewFAQsBtnActionPerformed(evt);
+            }
+        });
+
+        ViewLocationsBtn.setText("View Locations");
+        ViewLocationsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewLocationsBtnActionPerformed(evt);
+            }
+        });
+
+        LogOutBtn.setText("Log Out");
+        LogOutBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(ViewEmployeesBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewRateCardBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewCommutersBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewLendersBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ViewBicycleHistoryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ViewFAQsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ViewLocationsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LogOutBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewRateCardBtn)
+                    .addComponent(ViewFAQsBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewCommutersBtn)
+                    .addComponent(ViewBicycleHistoryBtn))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewLendersBtn)
+                    .addComponent(ViewLocationsBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewEmployeesBtn)
+                    .addComponent(LogOutBtn))
+                .addGap(11, 11, 11))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(145, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(140, 140, 140))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 282, Short.MAX_VALUE))
+                .addComponent(TitleLbl)
+                .addGap(30, 30, 30)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -77,6 +195,54 @@ public class Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ViewRateCardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewRateCardBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowRateCard(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewRateCardBtnActionPerformed
+
+    private void LogOutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutBtnActionPerformed
+        // TODO add your handling code here:
+        new HomePage().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_LogOutBtnActionPerformed
+
+    private void ViewFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewFAQsBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowFAQs(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewFAQsBtnActionPerformed
+
+    private void ViewBicycleHistoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewBicycleHistoryBtnActionPerformed
+        // TODO add your handling code here:
+        new RideHistory(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewBicycleHistoryBtnActionPerformed
+
+    private void ViewLocationsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLocationsBtnActionPerformed
+        // TODO add your handling code here:
+        new Location(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewLocationsBtnActionPerformed
+
+    private void ViewCommutersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewCommutersBtnActionPerformed
+        // TODO add your handling code here:
+        new ViewCustomer(this, "Commuter").setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewCommutersBtnActionPerformed
+
+    private void ViewLendersBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewLendersBtnActionPerformed
+        // TODO add your handling code here:
+        new ViewCustomer(this, "Lender").setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewLendersBtnActionPerformed
+
+    private void ViewEmployeesBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewEmployeesBtnActionPerformed
+        // TODO add your handling code here:
+        new ViewCustomer(this, "CCE").setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ViewEmployeesBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +280,16 @@ public class Admin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton LogOutBtn;
+    private javax.swing.JLabel TitleLbl;
+    private javax.swing.JButton ViewBicycleHistoryBtn;
+    private javax.swing.JButton ViewCommutersBtn;
+    private javax.swing.JButton ViewEmployeesBtn;
+    private javax.swing.JButton ViewFAQsBtn;
+    private javax.swing.JButton ViewLendersBtn;
+    private javax.swing.JButton ViewLocationsBtn;
+    private javax.swing.JButton ViewRateCardBtn;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

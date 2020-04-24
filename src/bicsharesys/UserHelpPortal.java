@@ -75,7 +75,7 @@ public class UserHelpPortal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        TitleLbl = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         MsgLbl = new javax.swing.JLabel();
         MsgTxt = new javax.swing.JTextField();
@@ -86,8 +86,9 @@ public class UserHelpPortal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
-        jLabel1.setText("Customer Help Desk");
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TitleLbl.setText("Customer Help Desk");
 
         MsgLbl.setText("<html>Enter your message here</html>");
 
@@ -145,33 +146,29 @@ public class UserHelpPortal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(SubmitBtn)
-                .addGap(18, 18, 18)
-                .addComponent(ClearBtn)
-                .addGap(51, 51, 51)
-                .addComponent(ReplyBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(BackBtn)
-                .addGap(34, 34, 34))
+                        .addComponent(SubmitBtn)
+                        .addGap(18, 18, 18)
+                        .addComponent(ClearBtn)
+                        .addGap(51, 51, 51)
+                        .addComponent(ReplyBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                        .addComponent(BackBtn)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(31, 31, 31)
+                .addComponent(TitleLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SubmitBtn)
                     .addComponent(ClearBtn)
@@ -291,7 +288,7 @@ public class UserHelpPortal extends javax.swing.JFrame {
     private javax.swing.JTextField MsgTxt;
     private javax.swing.JButton ReplyBtn;
     private javax.swing.JButton SubmitBtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel TitleLbl;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

@@ -1,2 +1,2 @@
-sharat, sharat123, Sharat, 1234567890, sharat@gmail.com, 0;
-suddu, suddu123, Sudarshan, 7538694210, me.suddu@gmail.com, 0;
+sharat, sharat123, Sharat, 9874563210, sharat@gmail.com, 0, 7410258963, Male, A+;
+suddu, suddu123, Suddu, 7538691042, suddu@hotmail.com, 0, 8495162037, Male, A-;
