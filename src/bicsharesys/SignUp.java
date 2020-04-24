@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -23,6 +24,12 @@ public class SignUp extends javax.swing.JFrame {
      */
     public SignUp() {
         initComponents();
+        ButtonGroup bg=new ButtonGroup();    
+        bg.add(CommuterRBtn);
+        bg.add(LenderRBtn);
+        ButtonGroup bg1=new ButtonGroup();    
+        bg1.add(MaleRBtn);
+        bg1.add(FemaleRBtn);
     }
     
     void SignUpWrite(String filename)

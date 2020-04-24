@@ -53,11 +53,6 @@ public class RideHistory extends javax.swing.JFrame {
             RatingTxt.setText(ridelist.get(this.iter).rating);
             this.setVisible(true);
         }
-        else
-        {
-            this.commuter.setVisible(true);
-            dispose();
-        }
     }
     
     public RideHistory(Admin admin) {

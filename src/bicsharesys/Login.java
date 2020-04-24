@@ -5,13 +5,13 @@
  */
 package bicsharesys;
 
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -41,6 +41,11 @@ public class Login extends javax.swing.JFrame {
         load_dataL(LENDER_FILE);
         load_dataA(ADMIN_FILE);
         load_dataCCE(CUSTOMERCARE_FILE);
+        ButtonGroup bg=new ButtonGroup();    
+        bg.add(AdminRBtn);
+        bg.add(CustomerCareRBtn);
+        bg.add(LenderRBtn);
+        bg.add(CommuterRBtn);
     }
     
     private void load_dataC(String filename) {
@@ -359,6 +364,11 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
         String uname = UsernameTxt.getText(), password = PasswordTxt.getText();
         if(CommuterRBtn.isSelected()) {
+//            CommuterRBtn.setSelected(false);
+            LenderRBtn.setSelected(false);
+            AdminRBtn.setSelected(false);
+            CustomerCareRBtn.setSelected(false);
+            
             Commuter validcommuter = isvalidC(uname, password);
             if(validcommuter!=null) {
 //                p.customer1.setCustomer(validcustomer);
@@ -370,6 +380,10 @@ public class Login extends javax.swing.JFrame {
             }
         }
         else if(LenderRBtn.isSelected()) {
+            CommuterRBtn.setSelected(false);
+//            LenderRBtn.setSelected(false);
+            AdminRBtn.setSelected(false);
+            CustomerCareRBtn.setSelected(false);
             Lender validlender = isvalidL(uname, password);
             if(validlender!=null) {
 //                p.admin1.setAdmin(validadmin);
@@ -381,6 +395,10 @@ public class Login extends javax.swing.JFrame {
             }
         }
         else if(AdminRBtn.isSelected()) {
+            CommuterRBtn.setSelected(false);
+            LenderRBtn.setSelected(false);
+//            AdminRBtn.setSelected(false);
+            CustomerCareRBtn.setSelected(false);
             Admin validadmin = isvalidA(uname, password);
             if(validadmin!=null) {
 //                p.admin1.setAdmin(validadmin);
@@ -392,6 +410,11 @@ public class Login extends javax.swing.JFrame {
             }
         }
         else if(CustomerCareRBtn.isSelected()) {
+            CommuterRBtn.setSelected(false);
+            LenderRBtn.setSelected(false);
+            AdminRBtn.setSelected(false);
+      
+//            CustomerCareRBtn.setSelected(false);
             CustomerCareEmp validcce = isvalidCCE(uname, password);
             if(validcce!=null) {
 //                p.admin1.setAdmin(validadmin);
