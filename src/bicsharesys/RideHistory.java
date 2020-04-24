@@ -45,13 +45,44 @@ public class RideHistory extends javax.swing.JFrame {
         this.iter = 0;
         if(ridelist.size() > 0)
         {
+            BicCodeTxt.setVisible(true);
+            StartLocTxt.setVisible(true);
+            EndLocTxt.setVisible(true);
+            StartTimeTxt.setVisible(true);
+            EndTimeTxt.setVisible(true);
+            RatingTxt.setVisible(true);
+            BicCodeLbl.setVisible(true);
+            StartLocLbl.setVisible(true);
+            StartTimeLbl.setVisible(true);
+            EndTimeLbl.setVisible(true);
+            EndLocLbl.setVisible(true);
+            RatingLbl.setVisible(true);
+            PrevBtn.setVisible(true);
+            NextBtn.setVisible(true);
             BicCodeTxt.setText(ridelist.get(this.iter).bicycle_code);
             StartLocTxt.setText(ridelist.get(this.iter).start_location);
             EndLocTxt.setText(ridelist.get(this.iter).end_location);
             StartTimeTxt.setText(ridelist.get(this.iter).start_time);
             EndTimeTxt.setText(ridelist.get(this.iter).end_time);
             RatingTxt.setText(ridelist.get(this.iter).rating);
-            this.setVisible(true);
+        }
+        else
+        {
+            BicCodeTxt.setVisible(false);
+            StartLocTxt.setVisible(false);
+            EndLocTxt.setVisible(false);
+            StartTimeTxt.setVisible(false);
+            EndTimeTxt.setVisible(false);
+            RatingTxt.setVisible(false);
+            BicCodeLbl.setVisible(false);
+            StartLocLbl.setVisible(false);
+            StartTimeLbl.setVisible(false);
+            EndTimeLbl.setVisible(false);
+            EndLocLbl.setVisible(false);
+            RatingLbl.setVisible(false);
+            PrevBtn.setVisible(false);
+            NextBtn.setVisible(false);
+            javax.swing.JOptionPane.showMessageDialog(this,"No rides found!"); 
         }
     }
     
@@ -73,6 +104,7 @@ public class RideHistory extends javax.swing.JFrame {
 //            }
 //            System.out.println("No idea");
         }
+        BicycleCombo.setEditable(false);
         this.setVisible(true);
         this.bicycle = bicycle;
         ridelist = new ArrayList();
@@ -80,6 +112,20 @@ public class RideHistory extends javax.swing.JFrame {
         this.iter = 0;
         if(ridelist.size() > 0)
         {
+            BicCodeTxt.setVisible(true);
+            StartLocTxt.setVisible(true);
+            EndLocTxt.setVisible(true);
+            StartTimeTxt.setVisible(true);
+            EndTimeTxt.setVisible(true);
+            RatingTxt.setVisible(true);
+            BicCodeLbl.setVisible(true);
+            StartLocLbl.setVisible(true);
+            StartTimeLbl.setVisible(true);
+            EndTimeLbl.setVisible(true);
+            EndLocLbl.setVisible(true);
+            RatingLbl.setVisible(true);
+            PrevBtn.setVisible(true);
+            NextBtn.setVisible(true);
             BicCodeTxt.setText(ridelist.get(this.iter).rider);
             StartLocTxt.setText(ridelist.get(this.iter).start_location);
             EndLocTxt.setText(ridelist.get(this.iter).end_location);
@@ -88,11 +134,24 @@ public class RideHistory extends javax.swing.JFrame {
             RatingTxt.setText(ridelist.get(this.iter).rating);
             this.setVisible(true);
         }
-//        else
-//        {
-//            this.commuter.setVisible(true);
-//            dispose();
-//        }
+        else
+        {
+            BicCodeTxt.setVisible(false);
+            StartLocTxt.setVisible(false);
+            EndLocTxt.setVisible(false);
+            StartTimeTxt.setVisible(false);
+            EndTimeTxt.setVisible(false);
+            RatingTxt.setVisible(false);
+            BicCodeLbl.setVisible(false);
+            StartLocLbl.setVisible(false);
+            StartTimeLbl.setVisible(false);
+            EndTimeLbl.setVisible(false);
+            EndLocLbl.setVisible(false);
+            RatingLbl.setVisible(false);
+            PrevBtn.setVisible(false);
+            NextBtn.setVisible(false);
+            javax.swing.JOptionPane.showMessageDialog(this,"No rides found!"); 
+        }
     }
     
     private void load_dataB(String filename) {
@@ -156,22 +215,22 @@ public class RideHistory extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        EndLocLbl = new javax.swing.JLabel();
         EndLocTxt = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        StartLocLbl = new javax.swing.JLabel();
         StartLocTxt = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         BicCodeLbl = new javax.swing.JLabel();
         BicCodeTxt = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        EndTimeLbl = new javax.swing.JLabel();
         EndTimeTxt = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        RatingLbl = new javax.swing.JLabel();
         RatingTxt = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
+        StartTimeLbl = new javax.swing.JLabel();
         StartTimeTxt = new javax.swing.JTextField();
         PrevBtn = new javax.swing.JButton();
         NextBtn = new javax.swing.JButton();
@@ -186,7 +245,7 @@ public class RideHistory extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("My Ride History");
 
-        jLabel3.setText("End Location");
+        EndLocLbl.setText("End Location");
 
         EndLocTxt.setEditable(false);
 
@@ -196,7 +255,7 @@ public class RideHistory extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jLabel3)
+                .addComponent(EndLocLbl)
                 .addGap(32, 32, 32)
                 .addComponent(EndLocTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -204,11 +263,11 @@ public class RideHistory extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EndLocLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(EndLocTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel2.setText("Start Location");
+        StartLocLbl.setText("Start Location");
 
         StartLocTxt.setEditable(false);
 
@@ -240,7 +299,7 @@ public class RideHistory extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel2)
+                .addComponent(StartLocLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(StartLocTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -253,11 +312,11 @@ public class RideHistory extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(StartLocLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(StartLocTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        jLabel5.setText("End Time");
+        EndTimeLbl.setText("End Time");
 
         EndTimeTxt.setEditable(false);
 
@@ -267,7 +326,7 @@ public class RideHistory extends javax.swing.JFrame {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel5)
+                .addComponent(EndTimeLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(EndTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -275,11 +334,11 @@ public class RideHistory extends javax.swing.JFrame {
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EndTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(EndTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel6.setText("Rating");
+        RatingLbl.setText("Rating");
 
         RatingTxt.setEditable(false);
 
@@ -289,7 +348,7 @@ public class RideHistory extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel6)
+                .addComponent(RatingLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(RatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -297,11 +356,11 @@ public class RideHistory extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RatingLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(RatingTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel7.setText("Start Time");
+        StartTimeLbl.setText("Start Time");
 
         StartTimeTxt.setEditable(false);
 
@@ -311,7 +370,7 @@ public class RideHistory extends javax.swing.JFrame {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel7)
+                .addComponent(StartTimeLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(StartTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
@@ -319,7 +378,7 @@ public class RideHistory extends javax.swing.JFrame {
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(StartTimeLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(StartTimeTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -568,6 +627,20 @@ public class RideHistory extends javax.swing.JFrame {
         this.iter = 0;
         if(ridelist.size() > 0)
         {
+            BicCodeTxt.setVisible(true);
+            StartLocTxt.setVisible(true);
+            EndLocTxt.setVisible(true);
+            StartTimeTxt.setVisible(true);
+            EndTimeTxt.setVisible(true);
+            RatingTxt.setVisible(true);
+            BicCodeLbl.setVisible(true);
+            StartLocLbl.setVisible(true);
+            StartTimeLbl.setVisible(true);
+            EndTimeLbl.setVisible(true);
+            EndLocLbl.setVisible(true);
+            RatingLbl.setVisible(true);
+            PrevBtn.setVisible(true);
+            NextBtn.setVisible(true);
             BicCodeTxt.setText(ridelist.get(this.iter).rider);
             StartLocTxt.setText(ridelist.get(this.iter).start_location);
             EndLocTxt.setText(ridelist.get(this.iter).end_location);
@@ -578,13 +651,28 @@ public class RideHistory extends javax.swing.JFrame {
         }
         else
         {
-            BicCodeTxt.setText("");
-            StartLocTxt.setText("");
-            EndLocTxt.setText("");
-            StartTimeTxt.setText("");
-            EndTimeTxt.setText("");
-            RatingTxt.setText("");
-            this.setVisible(true);
+            BicCodeTxt.setVisible(false);
+            StartLocTxt.setVisible(false);
+            EndLocTxt.setVisible(false);
+            StartTimeTxt.setVisible(false);
+            EndTimeTxt.setVisible(false);
+            RatingTxt.setVisible(false);
+            BicCodeLbl.setVisible(false);
+            StartLocLbl.setVisible(false);
+            StartTimeLbl.setVisible(false);
+            EndTimeLbl.setVisible(false);
+            EndLocLbl.setVisible(false);
+            RatingLbl.setVisible(false);
+            PrevBtn.setVisible(false);
+            NextBtn.setVisible(false);
+            javax.swing.JOptionPane.showMessageDialog(this,"No rides found!"); 
+//            BicCodeTxt.setText("");
+//            StartLocTxt.setText("");
+//            EndLocTxt.setText("");
+//            StartTimeTxt.setText("");
+//            EndTimeTxt.setText("");
+//            RatingTxt.setText("");
+//            this.setVisible(true);
         }
     }//GEN-LAST:event_BicycleComboItemStateChanged
 
@@ -628,21 +716,21 @@ public class RideHistory extends javax.swing.JFrame {
     private javax.swing.JTextField BicCodeTxt;
     private javax.swing.JComboBox<String> BicycleCombo;
     private javax.swing.JPanel ChooseBicPanel;
+    private javax.swing.JLabel EndLocLbl;
     private javax.swing.JTextField EndLocTxt;
+    private javax.swing.JLabel EndTimeLbl;
     private javax.swing.JTextField EndTimeTxt;
     private javax.swing.JButton ExitBtn;
     private javax.swing.JButton NextBtn;
     private javax.swing.JButton PrevBtn;
+    private javax.swing.JLabel RatingLbl;
     private javax.swing.JTextField RatingTxt;
+    private javax.swing.JLabel StartLocLbl;
     private javax.swing.JTextField StartLocTxt;
+    private javax.swing.JLabel StartTimeLbl;
     private javax.swing.JTextField StartTimeTxt;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

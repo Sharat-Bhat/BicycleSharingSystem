@@ -9,3 +9,4 @@
 287226, sharat, 2020-04-24 03:56:14, Main Building, 2020-04-24 03:56:21, Nalanda Classroom Complex, 5;
 3ec5f7ubt, sharat, 2020-04-24 04:16:40, Main Building, 2020-04-24 04:18:24, Main Building, 3;
 298796, sharat, 2020-04-24 04:39:50, Pan Loop, 2020-04-24 04:40:02, Main Building, 5;
+298796, newcom, 2020-04-24 09:08:30, Main Building, 2020-04-24 09:08:34, Main Building, 5;

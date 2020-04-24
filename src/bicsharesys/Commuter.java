@@ -253,7 +253,7 @@ public class Commuter extends javax.swing.JFrame {
 
     private void ViewRideHistBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewRideHistBtnActionPerformed
         // TODO add your handling code here:
-        new RideHistory(this);
+        new RideHistory(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_ViewRideHistBtnActionPerformed
 

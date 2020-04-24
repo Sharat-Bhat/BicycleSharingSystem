@@ -1,0 +1,7 @@
+admin & All set? & hi &&
+admin & How are you? & cce &&
+hi & Yes, sir & admin &&
+hi & How are you, sir? & admin &&
+admin & Ok fine. No problem. & cce&&
+admin & Go ahead & cce&&
+cce & Sir, looking forward to meet you. & admin&&

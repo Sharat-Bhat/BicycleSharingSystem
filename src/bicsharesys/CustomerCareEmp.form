@@ -77,9 +77,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="SeeRateCardBtn" max="32767" attributes="0"/>
-                          <Component id="SeeFAQsBtn" max="32767" attributes="0"/>
-                          <Component id="SeeCustomerMsgsBtn" max="32767" attributes="0"/>
+                          <Component id="MsgAdminBtn" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="SeeAdminMsgsBtn" max="32767" attributes="0"/>
+                              <Component id="SeeRateCardBtn" max="32767" attributes="0"/>
+                              <Component id="SeeFAQsBtn" max="32767" attributes="0"/>
+                              <Component id="SeeCustomerMsgsBtn" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="85" max="32767" attributes="0"/>
                       <Component id="LogOutBtn" min="-2" max="-2" attributes="0"/>
@@ -99,7 +103,11 @@
                       <Component id="SeeRateCardBtn" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="SeeCustomerMsgsBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="82" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="SeeAdminMsgsBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="MsgAdminBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -135,6 +143,22 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LogOutBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="SeeAdminMsgsBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="See Admin Messages"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SeeAdminMsgsBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="MsgAdminBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Message Admin"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MsgAdminBtnActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

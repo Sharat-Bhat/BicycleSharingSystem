@@ -49,6 +49,8 @@ public class CustomerCareEmp extends javax.swing.JFrame {
         SeeRateCardBtn = new javax.swing.JButton();
         SeeCustomerMsgsBtn = new javax.swing.JButton();
         LogOutBtn = new javax.swing.JButton();
+        SeeAdminMsgsBtn = new javax.swing.JButton();
+        MsgAdminBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,6 +86,20 @@ public class CustomerCareEmp extends javax.swing.JFrame {
             }
         });
 
+        SeeAdminMsgsBtn.setText("See Admin Messages");
+        SeeAdminMsgsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SeeAdminMsgsBtnActionPerformed(evt);
+            }
+        });
+
+        MsgAdminBtn.setText("Message Admin");
+        MsgAdminBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MsgAdminBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -91,9 +107,12 @@ public class CustomerCareEmp extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SeeRateCardBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SeeFAQsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SeeCustomerMsgsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(MsgAdminBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(SeeAdminMsgsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SeeRateCardBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SeeFAQsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SeeCustomerMsgsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addComponent(LogOutBtn)
                 .addContainerGap())
@@ -109,7 +128,11 @@ public class CustomerCareEmp extends javax.swing.JFrame {
                 .addComponent(SeeRateCardBtn)
                 .addGap(27, 27, 27)
                 .addComponent(SeeCustomerMsgsBtn)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SeeAdminMsgsBtn)
+                .addGap(18, 18, 18)
+                .addComponent(MsgAdminBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -170,6 +193,18 @@ public class CustomerCareEmp extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_LogOutBtnActionPerformed
 
+    private void SeeAdminMsgsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeAdminMsgsBtnActionPerformed
+        // TODO add your handling code here:
+        new EmpMessages(this, "view").setVisible(true);
+        dispose();
+    }//GEN-LAST:event_SeeAdminMsgsBtnActionPerformed
+
+    private void MsgAdminBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MsgAdminBtnActionPerformed
+        // TODO add your handling code here:
+        new EmpMessages(this, "send").setVisible(true);
+        dispose();
+    }//GEN-LAST:event_MsgAdminBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,6 +242,8 @@ public class CustomerCareEmp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutBtn;
+    private javax.swing.JButton MsgAdminBtn;
+    private javax.swing.JButton SeeAdminMsgsBtn;
     private javax.swing.JButton SeeCustomerMsgsBtn;
     private javax.swing.JButton SeeFAQsBtn;
     private javax.swing.JButton SeeRateCardBtn;
