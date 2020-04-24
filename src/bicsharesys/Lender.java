@@ -51,6 +51,8 @@ public class Lender extends javax.swing.JFrame {
         ContactCCBtn = new javax.swing.JButton();
         ViewMsgsBtn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        ShowFAQsBtn = new javax.swing.JButton();
+        ShowRateCardBtn = new javax.swing.JButton();
         TitleLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -87,32 +89,52 @@ public class Lender extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("<html>Welcome to the Lender Section</html>");
 
+        ShowFAQsBtn.setText("Show FAQs");
+        ShowFAQsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowFAQsBtnActionPerformed(evt);
+            }
+        });
+
+        ShowRateCardBtn.setText("Show Rate Card");
+        ShowRateCardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowRateCardBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ShowFAQsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LogOutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(LendBicycleBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ContactCCBtn, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ViewMsgsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ViewMsgsBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShowRateCardBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40))
-            .addComponent(jLabel1)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LendBicycleBtn)
-                    .addComponent(ContactCCBtn))
-                .addGap(37, 37, 37)
+                    .addComponent(ShowFAQsBtn)
+                    .addComponent(ShowRateCardBtn))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ContactCCBtn)
+                    .addComponent(LendBicycleBtn))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LogOutBtn)
                     .addComponent(ViewMsgsBtn))
@@ -128,13 +150,10 @@ public class Lender extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -184,6 +203,18 @@ public class Lender extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ViewMsgsBtnActionPerformed
 
+    private void ShowFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowFAQsBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowFAQs(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ShowFAQsBtnActionPerformed
+
+    private void ShowRateCardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRateCardBtnActionPerformed
+        // TODO add your handling code here:
+        new ShowRateCard(this).setVisible(true);
+        dispose();
+    }//GEN-LAST:event_ShowRateCardBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -223,6 +254,8 @@ public class Lender extends javax.swing.JFrame {
     private javax.swing.JButton ContactCCBtn;
     private javax.swing.JButton LendBicycleBtn;
     private javax.swing.JButton LogOutBtn;
+    private javax.swing.JButton ShowFAQsBtn;
+    private javax.swing.JButton ShowRateCardBtn;
     private javax.swing.JLabel TitleLbl;
     private javax.swing.JButton ViewMsgsBtn;
     private javax.swing.JLabel jLabel1;

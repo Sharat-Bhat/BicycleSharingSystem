@@ -33,7 +33,8 @@ public class Commuter extends javax.swing.JFrame {
         this.emergency_phone = user[6];
         this.gender = user[7];
         this.blood_group = user[8];
-        TitleLbl.setText(this.name+", "+TitleLbl.getText());
+        TitleLbl.setText("Hello "+ this.name);
+        
     }
     
     /**
@@ -56,11 +57,13 @@ public class Commuter extends javax.swing.JFrame {
         ContactCCBtn = new javax.swing.JButton();
         ViewMsgsBtn = new javax.swing.JButton();
         ViewRideHistBtn = new javax.swing.JButton();
+        DescriptionLbl = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        TitleLbl.setText("Welcome to Commuter Page");
+        TitleLbl.setText("Hello");
 
         WalletBtn.setText("Check Wallet");
         WalletBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -127,7 +130,7 @@ public class Commuter extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(ViewMsgsBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(ViewRideHistBtn))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(ContactCCBtn)
@@ -162,27 +165,32 @@ public class Commuter extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ViewMsgsBtn)
                     .addComponent(ViewRideHistBtn))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
+
+        DescriptionLbl.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        DescriptionLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        DescriptionLbl.setText("Welcome to the Commuter Section");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(TitleLbl)
-                .addContainerGap(81, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(DescriptionLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TitleLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(TitleLbl)
-                .addGap(67, 67, 67)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DescriptionLbl)
+                .addGap(37, 37, 37)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -221,13 +229,13 @@ public class Commuter extends javax.swing.JFrame {
 
     private void ShowFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowFAQsBtnActionPerformed
         // TODO add your handling code here:
-        new ShowFAQs().setVisible(true);
+        new ShowFAQs(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_ShowFAQsBtnActionPerformed
 
     private void ShowRateCardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowRateCardBtnActionPerformed
         // TODO add your handling code here:
-        new ShowRateCard().setVisible(true);
+        new ShowRateCard(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_ShowRateCardBtnActionPerformed
 
@@ -286,6 +294,7 @@ public class Commuter extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ContactCCBtn;
+    private javax.swing.JLabel DescriptionLbl;
     private javax.swing.JButton LogOutBtn;
     private javax.swing.JButton ShowBicyclesBtn;
     private javax.swing.JButton ShowFAQsBtn;

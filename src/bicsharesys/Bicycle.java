@@ -302,7 +302,14 @@ public class Bicycle extends javax.swing.JFrame {
 
     private void BackBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackBtnActionPerformed
         // TODO add your handling code here:
-        this.commuter.setVisible(true);
+        if(this.commuter != null)
+        {
+            this.commuter.setVisible(true);
+        }
+        else
+        {
+            new HomePage().setVisible(true);
+        }
         dispose();        
     }//GEN-LAST:event_BackBtnActionPerformed
 
@@ -322,12 +329,20 @@ public class Bicycle extends javax.swing.JFrame {
                 BicycleCombo.addItem(bicycle.code);
             }
         }
+        BicycleCombo.setEditable(false);
         this.setVisible(true);
     }//GEN-LAST:event_LocationComboItemStateChanged
 
     private void RefreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshBtnActionPerformed
         // TODO add your handling code here:
-        new Bicycle(this.commuter).setVisible(true);
+        if(this.commuter != null)
+        {
+            new Bicycle(this.commuter).setVisible(true);
+        }
+        else
+        {
+            new Bicycle().setVisible(true);
+        }
         dispose();
     }//GEN-LAST:event_RefreshBtnActionPerformed
 

@@ -5,7 +5,6 @@
  */
 package bicsharesys;
 
-import static bicsharesys.Wallet.COMMUTER_FILE;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,6 +15,7 @@ import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -40,6 +40,7 @@ public class Ride extends javax.swing.JFrame {
     DateFormat dateFormat;
     SimpleDateFormat format;
     List<Commuter> commuterlist;
+    static int hh, mm, ss;
     static final String COMMUTER_FILE = "data//commuter.txt";
     static final String BICYCLE_FILE = "data//bicycle.txt";
     static final String RIDE_FILE = "data//ride.txt";
@@ -50,6 +51,9 @@ public class Ride extends javax.swing.JFrame {
     
     public Ride(Commuter user, LendingPage bicycle) {
         initComponents();
+        NextBtn.setVisible(false);
+        TimerLbl.setVisible(false);
+        TimerDispLbl.setVisible(false);
         commuterlist = new ArrayList();
         load_dataC(COMMUTER_FILE);
         this.bicycle = bicycle;
@@ -60,15 +64,11 @@ public class Ride extends javax.swing.JFrame {
         Date date = Calendar.getInstance().getTime();  
         this.dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //        this.start = LocalDateTime.now();
-        Instant prev = Instant.now();
+        
         this.start_time = this.dateFormat.format(date);
-//        int hh=00, mm=00, ss=00;
-//        for(;this.end_time == null;)
-//        {
-//            
-//            LocalDateTime now = LocalDateTime.now();
-//            this.setVisible(true);
-//        }
+        
+//        this.setVisible(true);
+        
     }
     
     public Ride(String[] user) {
@@ -81,6 +81,39 @@ public class Ride extends javax.swing.JFrame {
         this.end_location = user[5];
         this.rating = user[6];
     }
+    
+//    public static void run_timer()
+//    {
+//        Instant prev = Instant.now();
+//        hh=00; 
+//        mm=00;
+//        ss=00;
+//        TimerDispLbl.setText("00 : 00 : 00");
+//        for(;;)
+//        {
+//              if(Duration.between(prev, Instant.now()).getSeconds() > 1)
+//              {
+//                  prev = Instant.now();
+//                  ss++;
+//                  if(ss >= 60)
+//                  {
+//                      ss = 0;
+//                      mm++;
+//                      if(mm >= 60)
+//                      {
+//                          mm = 0;
+//                          hh++;
+//                      }
+//                  }
+//                  String passed_time = String.format("%02d : %02d : %02d", hh, mm, ss);
+//                  TimerDispLbl.setText(passed_time);
+////                  this.setVisible(true);
+//              }
+//
+////            LocalDateTime now = LocalDateTime.now();
+////            this.setVisible(true);
+//        }
+//    }
     
     private void load_dataC(String filename) {
         System.out.println("in load data func");
@@ -242,7 +275,7 @@ public class Ride extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        TimerLbl = new javax.swing.JLabel();
         TimerDispLbl = new javax.swing.JLabel();
         EndRideBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -256,8 +289,8 @@ public class Ride extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Timer");
+        TimerLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TimerLbl.setText("Timer");
 
         TimerDispLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TimerDispLbl.setText("Timing");
@@ -268,14 +301,14 @@ public class Ride extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TimerLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(TimerDispLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TimerLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(TimerDispLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -438,6 +471,7 @@ public class Ride extends javax.swing.JFrame {
             long diffMinutes = diff / (60 * 1000);
             chargeCommuter(this.user, diffMinutes);
             EndRideBtn.setVisible(false);
+            NextBtn.setVisible(true);
         }
     }//GEN-LAST:event_EndRideBtnActionPerformed
 
@@ -498,8 +532,8 @@ public class Ride extends javax.swing.JFrame {
     private javax.swing.JButton NextBtn;
     private javax.swing.JComboBox<String> RatingCombo;
     private javax.swing.JLabel TimerDispLbl;
+    private javax.swing.JLabel TimerLbl;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

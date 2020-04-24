@@ -176,7 +176,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void ShowFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowFAQsBtnActionPerformed
         // TODO add your handling code here:
-        new ShowRateCard().setVisible(true);
+        new ShowFAQs().setVisible(true);
         dispose();
     }//GEN-LAST:event_ShowFAQsBtnActionPerformed
 

@@ -52,6 +52,8 @@ public class CustomerCareEmp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Customer Care Employee");
 
         SeeFAQsBtn.setText("See FAQs");
@@ -107,7 +109,7 @@ public class CustomerCareEmp extends javax.swing.JFrame {
                 .addComponent(SeeRateCardBtn)
                 .addGap(27, 27, 27)
                 .addComponent(SeeCustomerMsgsBtn)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -115,12 +117,10 @@ public class CustomerCareEmp extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -148,13 +148,13 @@ public class CustomerCareEmp extends javax.swing.JFrame {
 
     private void SeeFAQsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeFAQsBtnActionPerformed
         // TODO add your handling code here:
-        new ShowFAQs().setVisible(true);
+        new ShowFAQs(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_SeeFAQsBtnActionPerformed
 
     private void SeeRateCardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeeRateCardBtnActionPerformed
         // TODO add your handling code here:
-        new ShowRateCard().setVisible(true);
+        new ShowRateCard(this).setVisible(true);
         dispose();
     }//GEN-LAST:event_SeeRateCardBtnActionPerformed
 

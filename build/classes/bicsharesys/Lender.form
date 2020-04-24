@@ -39,15 +39,10 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jPanel2" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="TitleLbl" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="TitleLbl" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -70,9 +65,11 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="ShowFAQsBtn" max="32767" attributes="0"/>
                           <Component id="LogOutBtn" max="32767" attributes="0"/>
                           <Component id="LendBicycleBtn" max="32767" attributes="0"/>
                       </Group>
@@ -80,10 +77,10 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="ContactCCBtn" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="ViewMsgsBtn" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="ShowRateCardBtn" alignment="1" min="-2" pref="176" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -91,12 +88,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="88" max="32767" attributes="0"/>
+                      <EmptySpace pref="52" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="LendBicycleBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ContactCCBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ShowFAQsBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ShowRateCardBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ContactCCBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="LendBicycleBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="LogOutBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ViewMsgsBtn" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -147,6 +149,22 @@
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt;Welcome to the Lender Section&lt;/html&gt;"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="ShowFAQsBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show FAQs"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowFAQsBtnActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="ShowRateCardBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show Rate Card"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowRateCardBtnActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
