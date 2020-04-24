@@ -3,3 +3,6 @@
 1235, sharat, 2020-04-22 11:48:52, Main Building, 2020-04-22 11:50:11, Pan Loop, 3;
 792298, sharat, 2020-04-22 11:59:34, Main Building, 2020-04-22 11:59:51, Tech Market, 2;
 298796, sharat, 2020-04-22 10:48:09, Nalanda Classroom Complex, 2020-04-22 11:15:34, Main Building, 5;
+287226, vinay, 2020-04-24 01:10:55, Tech Market, 2020-04-24 01:11:26, Main Building, 4;
+298796, vinay, 2020-04-24 01:23:52, Main Building, 2020-04-24 01:23:58, Main Building, 5;
+298796, vinay, 2020-04-24 02:41:58, Main Building, 2020-04-24 02:42:08, Pan Loop, 1;

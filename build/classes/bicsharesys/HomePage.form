@@ -52,24 +52,21 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                  <Component id="LogInBtn" min="-2" pref="78" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="DescriptionLbl" alignment="0" pref="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="CustRegBtn" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="EmpRegBtn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="CustRegBtn" alignment="1" max="32767" attributes="0"/>
+                              <Component id="EmpRegBtn" alignment="1" max="32767" attributes="0"/>
+                              <Component id="ViewBicyclesBtn" alignment="1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="41" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="ShowFAQsBtn" max="32767" attributes="0"/>
-                              <Component id="ShowRateCardBtn" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="LogInBtn" max="32767" attributes="0"/>
+                              <Component id="ShowFAQsBtn" alignment="1" max="32767" attributes="0"/>
+                              <Component id="ShowRateCardBtn" alignment="1" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -92,9 +89,12 @@
                       <Component id="EmpRegBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ShowFAQsBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="LogInBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="LogInBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ViewBicyclesBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="28" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -144,6 +144,14 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="&lt;html&gt;This is a Bicycle Sharing System where any user can rent a bicycle to commute from one place to another inside IIT-Kharagpur Campus.&lt;/html&gt;"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="ViewBicyclesBtn">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="View Bicycles"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ViewBicyclesBtnActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -5,17 +5,23 @@
  */
 package bicsharesys;
 
+import static bicsharesys.Wallet.COMMUTER_FILE;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -33,6 +39,7 @@ public class Ride extends javax.swing.JFrame {
     LocalDateTime start, stop;
     DateFormat dateFormat;
     SimpleDateFormat format;
+    List<Commuter> commuterlist;
     static final String COMMUTER_FILE = "data//commuter.txt";
     static final String BICYCLE_FILE = "data//bicycle.txt";
     static final String RIDE_FILE = "data//ride.txt";
@@ -43,17 +50,19 @@ public class Ride extends javax.swing.JFrame {
     
     public Ride(Commuter user, LendingPage bicycle) {
         initComponents();
+        commuterlist = new ArrayList();
+        load_dataC(COMMUTER_FILE);
         this.bicycle = bicycle;
         this.user = user;
         this.bicycle_code = bicycle.code;
         this.rider = bicycle.current_user;
         this.start_location = bicycle.location;
         Date date = Calendar.getInstance().getTime();  
-        this.dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        this.dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 //        this.start = LocalDateTime.now();
         Instant prev = Instant.now();
         this.start_time = this.dateFormat.format(date);
-        int hh=00, mm=00, ss=00;
+//        int hh=00, mm=00, ss=00;
 //        for(;this.end_time == null;)
 //        {
 //            
@@ -71,6 +80,19 @@ public class Ride extends javax.swing.JFrame {
         this.end_time = user[4];
         this.end_location = user[5];
         this.rating = user[6];
+    }
+    
+    private void load_dataC(String filename) {
+        System.out.println("in load data func");
+        try(Scanner s = new Scanner(new BufferedReader(new FileReader(filename)))) {
+            s.useDelimiter("\\s*;\\s*");
+            while(s.hasNext()){
+                String[] author = s.next().split("\\s*,\\s*");
+                commuterlist.add(new Commuter(author));
+            }
+        }catch (IOException e){
+            System.out.println("Cannot open file " + filename);
+        }
     }
     
     void RideWrite(String filename)
@@ -109,8 +131,36 @@ public class Ride extends javax.swing.JFrame {
     String ChangeToStringC(Commuter user)
     {
         String ans = "";
-        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.balance+";";
+        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.balance+", "+user.emergency_phone+", "+user.gender+", "+user.blood_group+";\n";
         return ans;
+    }
+    
+    void Write(String filename, String data)
+    {
+//        String data = "";
+//        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.balance+", "+this.emergency_phone+", "+this.gender+", "+this.blood_group+";\n";
+    
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try
+        {
+            File file = new File(filename);
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            bw.write(data);
+            System.out.println("Writing done");
+//            Login.main(new String[]{});
+//            dispose();
+        }
+        catch (IOException e) {}
+        finally {
+                try {
+                    if (bw != null)
+                            bw.close();
+                    if (fw != null)
+                            fw.close();
+                } catch (IOException ex) {}
+        }
     }
     
     void modify(String filepath, String oldLine, String newLine)
@@ -127,6 +177,8 @@ public class Ride extends javax.swing.JFrame {
            buffer.append(sc.nextLine()+System.lineSeparator());
         }
         String fileContents = buffer.toString();
+        System.out.println(oldLine);
+        System.out.println(newLine);
         System.out.println("Contents of the file: "+fileContents);
         //closing the Scanner object
         sc.close();
@@ -158,6 +210,25 @@ public class Ride extends javax.swing.JFrame {
         user.balance = Integer.toString(Integer.parseInt(user.balance)-value);
         String next = ChangeToStringC(user);
         modify(COMMUTER_FILE, prev, next);
+        for(Commuter commuter : commuterlist)
+            {
+                if(commuter.uname.equals(user.uname))
+                {
+                    commuter.balance = user.balance;
+                }
+            }
+            try(PrintWriter writer = new PrintWriter(COMMUTER_FILE))
+            {
+                writer.print("");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Cannot open file"+COMMUTER_FILE);
+            }
+            for(Commuter commuter : commuterlist)
+            {
+                Write(COMMUTER_FILE, ChangeToStringC(commuter));
+            }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -366,6 +437,7 @@ public class Ride extends javax.swing.JFrame {
 //            long diffSeconds = diff / 1000;         
             long diffMinutes = diff / (60 * 1000);
             chargeCommuter(this.user, diffMinutes);
+            EndRideBtn.setVisible(false);
         }
     }//GEN-LAST:event_EndRideBtnActionPerformed
 

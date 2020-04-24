@@ -6,8 +6,12 @@
 package bicsharesys;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -126,6 +130,109 @@ public class ViewCustomer extends javax.swing.JFrame {
         }
     }
     
+    String ChangeToStringC(Commuter user)
+    {
+        String ans = "";
+        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.balance+", "+user.emergency_phone+", "+user.gender+", "+user.blood_group+";\n";
+        return ans;
+    }
+    
+    String ChangeToStringL(Lender user)
+    {
+        String ans = "";
+        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+"0"+", "+user.emergency_phone+", "+user.gender+", "+user.blood_group+";\n";
+        return ans;
+    }
+    
+    
+    String ChangeToStringCCE(CustomerCareEmp user)
+    {
+        String ans = "";
+        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.emergency_phone+", "+user.gender+", "+user.blood_group+";\n";
+        return ans;
+    }
+    
+//    void delete(String filename, String lineToRemove)
+//    {
+//        File inputFile = new File("myFile.txt");
+//        File tempFile = new File("myTempFile.txt");
+//        BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+//        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+////        String lineToRemove = "type here the line to remove from the text";
+//        String currentLine;
+//        while((currentLine = reader.readLine()) != null) {
+//        // trim newline when comparing with lineToRemove
+//            String trimmedLine = currentLine.trim();
+//
+//            if(trimmedLine.equals(lineToRemove)) continue;
+//            writer.write(currentLine + System.getProperty("//s*;//s*"));
+//        }
+//        writer.close(); 
+//        reader.close(); 
+//        boolean successful = tempFile.renameTo(inputFile);
+//    }
+    
+    void Write(String filename, String data)
+    {
+//        String data = "";
+//        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.balance+", "+this.emergency_phone+", "+this.gender+", "+this.blood_group+";\n";
+    
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try
+        {
+            File file = new File(filename);
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            bw.write(data);
+            System.out.println("Writing done");
+//            Login.main(new String[]{});
+//            dispose();
+        }
+        catch (IOException e) {}
+        finally {
+                try {
+                    if (bw != null)
+                            bw.close();
+                    if (fw != null)
+                            fw.close();
+                } catch (IOException ex) {}
+        }
+    }
+    
+    void modify(String filepath, String oldLine, String newLine)
+    {
+        try
+        {
+        //Instantiating the Scanner class to read the file
+        Scanner sc = new Scanner(new File(filepath));
+        //instantiating the StringBuffer class
+        StringBuffer buffer = new StringBuffer();
+        //Reading lines of the file and appending them to StringBuffer
+        while (sc.hasNextLine()) 
+        {
+           buffer.append(sc.nextLine()+System.lineSeparator());
+        }
+        String fileContents = buffer.toString();
+        System.out.println("Contents of the file: "+fileContents);
+        //closing the Scanner object
+        sc.close();
+//        String oldLine = "No preconditions and no impediments. Simply Easy Learning!";
+//        String newLine = "Enjoy the free content";
+        //Replacing the old line with new line
+        fileContents = fileContents.replaceAll(oldLine, newLine);
+        //instantiating the FileWriter class
+        FileWriter writer = new FileWriter(filepath);
+        System.out.println("");
+        System.out.println("new data: "+fileContents);
+        writer.append(fileContents);
+        writer.flush();
+        }
+        catch(Exception e)
+        {
+            System.out.println("Cannot open file " + filepath);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -165,6 +272,7 @@ public class ViewCustomer extends javax.swing.JFrame {
         PrevBtn = new javax.swing.JButton();
         NextBtn = new javax.swing.JButton();
         ExitBtn = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -368,6 +476,13 @@ public class ViewCustomer extends javax.swing.JFrame {
             }
         });
 
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -393,11 +508,13 @@ public class ViewCustomer extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(PrevBtn)
-                        .addGap(41, 41, 41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NextBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(DeleteBtn)
+                        .addGap(18, 18, 18)
                         .addComponent(ExitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40))))
+                        .addGap(34, 34, 34))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -421,7 +538,8 @@ public class ViewCustomer extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PrevBtn)
                     .addComponent(NextBtn)
-                    .addComponent(ExitBtn))
+                    .addComponent(ExitBtn)
+                    .addComponent(DeleteBtn))
                 .addGap(0, 9, Short.MAX_VALUE))
         );
 
@@ -586,6 +704,112 @@ public class ViewCustomer extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_ExitBtnActionPerformed
 
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        // TODO add your handling code here:
+        if(this.customer.equals("Commuter"))
+        {
+//            String prev = ChangeToStringC(commuterlist.get(this.iter));
+//            String next = " ";
+//            modify(COMMUTER_FILE, prev, next);
+//            commuterlist = new ArrayList();
+            TitleLbl.setText("Commuters");
+//            load_dataC(COMMUTER_FILE);
+            commuterlist.remove(this.iter);
+            try(PrintWriter writer = new PrintWriter(COMMUTER_FILE))
+            {
+                writer.print("");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Cannot open file"+COMMUTER_FILE);
+            }
+            for(Commuter commuter : commuterlist)
+            {
+                Write(COMMUTER_FILE, ChangeToStringC(commuter));
+            }
+            if(this.iter > commuterlist.size()-1)
+            {
+                this.iter = commuterlist.size()-1;
+            }
+            NameTxt.setText(commuterlist.get(this.iter).name);
+            UserNameTxt.setText(commuterlist.get(this.iter).uname);
+            PasswordTxt.setText(commuterlist.get(this.iter).password);
+            EmailTxt.setText(commuterlist.get(this.iter).email);
+            MobileTxt.setText(commuterlist.get(this.iter).phone);
+            EmergencyMobileTxt.setText(commuterlist.get(this.iter).emergency_phone);
+            GenderTxt.setText(commuterlist.get(this.iter).gender);
+            BloodGroupTxt.setText(commuterlist.get(this.iter).blood_group);
+        }
+        else if(this.customer.equals("Lender"))
+        {
+//            String prev = ChangeToStringC(lenderlist.get(this.iter));
+//            String next = " ";
+//            modify(COMMUTER_FILE, prev, next);
+//            lenderlist = new ArrayList();
+            TitleLbl.setText("Lenders");
+//            load_dataC(COMMUTER_FILE);
+            lenderlist.remove(this.iter);
+            try(PrintWriter writer = new PrintWriter(LENDER_FILE))
+            {
+                writer.print("");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Cannot open file"+LENDER_FILE);
+            }
+            for(Lender lender : lenderlist)
+            {
+                Write(LENDER_FILE, ChangeToStringL(lender));
+            }
+            if(this.iter > lenderlist.size()-1)
+            {
+                this.iter = lenderlist.size()-1;
+            }
+            NameTxt.setText(lenderlist.get(this.iter).name);
+            UserNameTxt.setText(lenderlist.get(this.iter).uname);
+            PasswordTxt.setText(lenderlist.get(this.iter).password);
+            EmailTxt.setText(lenderlist.get(this.iter).email);
+            MobileTxt.setText(lenderlist.get(this.iter).phone);
+            EmergencyMobileTxt.setText(lenderlist.get(this.iter).emergency_phone);
+            GenderTxt.setText(lenderlist.get(this.iter).gender);
+            BloodGroupTxt.setText(lenderlist.get(this.iter).blood_group);
+        }
+        else if(this.customer.equals("CCE"))
+        {
+//            String prev = ChangeToStringC(ccelist.get(this.iter));
+//            String next = " ";
+//            modify(COMMUTER_FILE, prev, next);
+//            ccelist = new ArrayList();
+            TitleLbl.setText("Employees");
+//            load_dataC(COMMUTER_FILE);
+            ccelist.remove(this.iter);
+            try(PrintWriter writer = new PrintWriter(CCE_FILE))
+            {
+                writer.print("");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Cannot open file"+CCE_FILE);
+            }
+            for(CustomerCareEmp cce : ccelist)
+            {
+                Write(CCE_FILE, ChangeToStringCCE(cce));
+            }
+            if(this.iter > ccelist.size()-1)
+            {
+                this.iter = ccelist.size()-1;
+            }
+            NameTxt.setText(ccelist.get(this.iter).name);
+            UserNameTxt.setText(ccelist.get(this.iter).uname);
+            PasswordTxt.setText(ccelist.get(this.iter).password);
+            EmailTxt.setText(ccelist.get(this.iter).email);
+            MobileTxt.setText(ccelist.get(this.iter).phone);
+            EmergencyMobileTxt.setText(ccelist.get(this.iter).emergency_phone);
+            GenderTxt.setText(ccelist.get(this.iter).gender);
+            BloodGroupTxt.setText(ccelist.get(this.iter).blood_group);
+        }
+    }//GEN-LAST:event_DeleteBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -625,6 +849,7 @@ public class ViewCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel BloodGroupLbl;
     private javax.swing.JLabel BloodGroupLbl1;
     private javax.swing.JTextField BloodGroupTxt;
+    private javax.swing.JButton DeleteBtn;
     private javax.swing.JLabel EmailLbl;
     private javax.swing.JTextField EmailTxt;
     private javax.swing.JLabel EmergencyMobileLbl;

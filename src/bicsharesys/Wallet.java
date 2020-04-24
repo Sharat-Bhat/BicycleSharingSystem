@@ -5,8 +5,16 @@
  */
 package bicsharesys;
 
+import static bicsharesys.ViewCustomer.COMMUTER_FILE;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -20,6 +28,7 @@ public class Wallet extends javax.swing.JFrame {
      */
     Commuter commuter;
     int balance;
+    List<Commuter> commuterlist;
     static final String COMMUTER_FILE = "data//commuter.txt";
     
     public Wallet() {
@@ -29,15 +38,58 @@ public class Wallet extends javax.swing.JFrame {
     public Wallet(Commuter user) {
         initComponents();
         this.commuter = user;
+        commuterlist = new ArrayList();
+        load_dataC(COMMUTER_FILE);
         ValueLbl.setText(user.balance);
         balance = Integer.parseInt(user.balance);
     }
     
-    String ChangeToString(Commuter user)
+    private void load_dataC(String filename) {
+        System.out.println("in load data func");
+        try(Scanner s = new Scanner(new BufferedReader(new FileReader(filename)))) {
+            s.useDelimiter("\\s*;\\s*");
+            while(s.hasNext()){
+                String[] author = s.next().split("\\s*,\\s*");
+                commuterlist.add(new Commuter(author));
+            }
+        }catch (IOException e){
+            System.out.println("Cannot open file " + filename);
+        }
+    }
+    
+    String ChangeToStringC(Commuter user)
     {
         String ans = "";
-        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.balance+";";
+        ans += user.uname+", "+user.password+", "+user.name+", "+user.phone+", "+user.email+", "+user.balance+", "+user.emergency_phone+", "+user.gender+", "+user.blood_group+";\n";
         return ans;
+    }
+    
+    void Write(String filename, String data)
+    {
+//        String data = "";
+//        data += this.uname+", "+this.password+", "+this.name+", "+this.phone+", "+this.email+", "+this.balance+", "+this.emergency_phone+", "+this.gender+", "+this.blood_group+";\n";
+    
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try
+        {
+            File file = new File(filename);
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            bw.write(data);
+            System.out.println("Writing done");
+//            Login.main(new String[]{});
+//            dispose();
+        }
+        catch (IOException e) {}
+        finally {
+                try {
+                    if (bw != null)
+                            bw.close();
+                    if (fw != null)
+                            fw.close();
+                } catch (IOException ex) {}
+        }
     }
     
     void modify(String filepath, String oldLine, String newLine)
@@ -54,6 +106,8 @@ public class Wallet extends javax.swing.JFrame {
            buffer.append(sc.nextLine()+System.lineSeparator());
         }
         String fileContents = buffer.toString();
+        System.out.println(oldLine);
+        System.out.println(newLine);
         System.out.println("Contents of the file: "+fileContents);
         //closing the Scanner object
         sc.close();
@@ -103,6 +157,8 @@ public class Wallet extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        TitleLbl.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        TitleLbl.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TitleLbl.setText("Wallet");
 
         RechargeLbl.setText("Recharge Amount");
@@ -195,7 +251,7 @@ public class Wallet extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,12 +267,12 @@ public class Wallet extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(TitleLbl))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(62, 62, 62)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(TitleLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -231,7 +287,9 @@ public class Wallet extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,12 +309,31 @@ public class Wallet extends javax.swing.JFrame {
         // TODO add your handling code here:
         try
         {
-            String prev = ChangeToString(this.commuter);
+//            String prev = ChangeToStringC(this.commuter);
             int increment = Integer.parseInt(RechargeTxt.getText());
             balance = balance + increment;
             this.commuter.balance = String.valueOf(balance);
-            String next = ChangeToString(this.commuter);
-            modify(COMMUTER_FILE, prev, next);
+//            String next = ChangeToStringC(this.commuter);
+//            modify(COMMUTER_FILE, prev, next);
+            for(Commuter commuter : commuterlist)
+            {
+                if(commuter.uname.equals(this.commuter.uname))
+                {
+                    commuter.balance = this.commuter.balance;
+                }
+            }
+            try(PrintWriter writer = new PrintWriter(COMMUTER_FILE))
+            {
+                writer.print("");
+            }
+            catch(Exception e)
+            {
+                System.out.println("Cannot open file"+COMMUTER_FILE);
+            }
+            for(Commuter commuter : commuterlist)
+            {
+                Write(COMMUTER_FILE, ChangeToStringC(commuter));
+            }
             ValueLbl.setText(this.commuter.balance);
             RechargeTxt.setText("");
             

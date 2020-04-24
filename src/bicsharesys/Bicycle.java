@@ -32,6 +32,22 @@ public class Bicycle extends javax.swing.JFrame {
     
     public Bicycle() {
         initComponents();
+         bicyclelist = new ArrayList();
+        load_dataB(BICYCLE_FILE);
+        this.current_location = LocationCombo.getSelectedItem().toString();
+        BicycleCombo.removeAllItems();
+        BicycleCombo.setEditable(true);
+        for(LendingPage bicycle : bicyclelist)
+        {
+            if(bicycle.location.equals(this.current_location) && bicycle.occupied.equals("0"))
+            {
+                BicycleCombo.addItem(bicycle.code);
+                System.out.println("Added");
+            }
+            System.out.println("No idea");
+        }
+        this.setVisible(true);
+        StartRideBtn.setVisible(false);
     }
     
     public Bicycle(Commuter user) {
@@ -318,20 +334,27 @@ public class Bicycle extends javax.swing.JFrame {
     private void StartRideBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartRideBtnActionPerformed
         // TODO add your handling code here:
 //        load_dataB(BICYCLE_FILE); 
-        for(LendingPage bicycle : bicyclelist)
+        if(Integer.parseInt(this.commuter.balance) >= 10)
         {
-            if(bicycle.code.equals(BicycleCombo.getSelectedItem().toString()) && bicycle.occupied.equals("0"))
+            for(LendingPage bicycle : bicyclelist)
             {
-                String prev = ChangeToString(bicycle);
-                bicycle.occupied = "1";
-                bicycle.current_user = this.commuter.uname;
-                this.rented_bicycle = bicycle;
-                String next = ChangeToString(this.rented_bicycle);
-                modify(BICYCLE_FILE, prev, next);
+                if(bicycle.code.equals(BicycleCombo.getSelectedItem().toString()) && bicycle.occupied.equals("0"))
+                {
+                    String prev = ChangeToString(bicycle);
+                    bicycle.occupied = "1";
+                    bicycle.current_user = this.commuter.uname;
+                    this.rented_bicycle = bicycle;
+                    String next = ChangeToString(this.rented_bicycle);
+                    modify(BICYCLE_FILE, prev, next);
+                }
             }
+            dispose();
+            new Ride(this.commuter, this.rented_bicycle).setVisible(true);
         }
-        dispose();
-        new Ride(this.commuter, this.rented_bicycle).setVisible(true);
+        else
+        {
+            javax.swing.JOptionPane.showMessageDialog(this,"Low Balance! Recharge before proceeding.");  
+        }
     }//GEN-LAST:event_StartRideBtnActionPerformed
 
     /**
